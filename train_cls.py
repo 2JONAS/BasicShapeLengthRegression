@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIR = BASE_DIR
 sys.path.append(os.path.join(ROOT_DIR, 'models'))
 
-print("model dir is ",os.path.join(ROOT_DIR, 'models'))
+
 def parse_args():
     '''PARAMETERS'''
     parser = argparse.ArgumentParser('PointNet')
@@ -36,7 +36,7 @@ def parse_args():
     parser.add_argument('--normal', action='store_true', default=False, help='Whether to use normal information [default: False]')
     return parser.parse_args()
 
-def test(model, loader, num_class=40):
+def test(model, loader, num_class=2):
     mean_correct = []
     class_acc = np.zeros((num_class,3))
     for j, data in tqdm(enumerate(loader), total=len(loader)):
